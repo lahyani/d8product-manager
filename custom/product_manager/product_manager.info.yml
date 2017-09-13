@@ -1,0 +1,7 @@
+name: Product Manager
+type: module
+description: Create new content type Product. Add features to manage it
+package: Custom
+core: 8.x
+version: 8.x-1.0
+configure: product_manager.configure

@@ -1,0 +1,3 @@
+administer product:
+  title: 'Administer product'
+  description: 'Permission to add, update and delete product.'

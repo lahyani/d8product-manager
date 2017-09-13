@@ -1,0 +1,4 @@
+services:
+  product_manager.notifier:
+    class: Drupal\product_manager\Helper\Notifier
+    arguments: ['@config.factory', '@current_user', '@plugin.manager.mail', '@string_translation', '@logger.channel.default']

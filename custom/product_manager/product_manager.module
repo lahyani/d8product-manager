@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Main file for the Product Manager module, which manage new content type Product
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function product_manager_entity_insert(EntityInterface $entity) {
+  // Check if the node type is product. If true sends a notification by email
+  if ($entity->getEntityTypeId() !== 'node' || ($entity->getEntityTypeId() === 'node' && $entity->bundle() !== 'product')) {
+    return;
+  }
+  \Drupal::service('product_manager.notifier')->notify($entity, 'insert');
+}
+
+/**
+ * Implements hook_mail().
+ */
+function product_manager_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'product_created':
+      $message['from']    = $params['from'];
+      $message['subject'] = $params['subject'];
+      $message['body'][]  = $params['message'];
+      break;
+  }
+}

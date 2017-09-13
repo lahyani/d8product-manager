@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - product_manager # We have to remove the content type when the module is unistalled
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Product
+type: product
+description: 'Add Product Entity'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

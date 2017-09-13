@@ -1,0 +1,7 @@
+product_manager.configure:
+    path: '/admin/config/product_manager/config'
+    defaults:
+        _form: '\Drupal\product_manager\Form\ConfigForm'
+        _title: 'Product Manager Configuration'
+    requirements:
+        _permission: 'administer site configuration'
